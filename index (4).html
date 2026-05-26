@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hana Ali — Strategy & Transformation Leader</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1f35;
+    --navy-mid: #1a3150;
+    --teal: #2a7f7f;
+    --teal-light: #3a9f9f;
+    --gold: #c8a96e;
+    --gold-light: #e8c98e;
+    --cream: #faf8f4;
+    --warm-white: #f5f2ec;
+    --text-dark: #1a1a2e;
+    --text-mid: #4a5568;
+    --text-light: #718096;
+    --nhs-blue: #005eb8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(15, 31, 53, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(200, 169, 110, 0.2);
+  }
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 400; color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 80px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -5%;
+    width: 55%; height: 130%;
+    background: linear-gradient(135deg, var(--teal) 0%, var(--navy-mid) 60%);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 0.35;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-text {
+    padding: 5rem 3rem 5rem 6rem;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.9s ease both;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1.4rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    font-weight: 300; line-height: 1.1;
+    color: #fff; margin-bottom: 0.3rem;
+  }
+  h1 em { font-style: italic; color: var(--gold-light); }
+  .hero-title {
+    font-size: 0.9rem; font-weight: 400; color: rgba(255,255,255,0.55);
+    margin-bottom: 2rem; letter-spacing: 0.04em;
+  }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-style: italic; font-weight: 300;
+    color: rgba(255,255,255,0.8); line-height: 1.65;
+    border-left: 2px solid var(--gold); padding-left: 1.2rem;
+    margin-bottom: 2.8rem;
+  }
+  .hero-cta {
+    display: inline-flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-block; padding: 0.8rem 2rem;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.35); color: rgba(255,255,255,0.8);
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-image-side {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 4rem 4rem 4rem 2rem;
+    animation: fadeUp 1.1s 0.15s ease both;
+  }
+  .photo-frame {
+    width: 280px; height: 280px; border-radius: 50%;
+    border: 3px solid var(--gold);
+    padding: 5px;
+    box-shadow: 0 0 60px rgba(200,169,110,0.18);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+    background: var(--navy-mid);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .photo-initials {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; font-weight: 300; color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; width: 100%;
+    border: 1px solid rgba(200,169,110,0.25);
+  }
+  .stat {
+    padding: 1.2rem 1rem; text-align: center;
+    border-right: 1px solid rgba(200,169,110,0.25);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 400; color: var(--gold);
+    line-height: 1; display: block; margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.68rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 0; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+
+  .section-label {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--teal);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; color: var(--navy); line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  h2 em { font-style: italic; color: var(--teal); }
+
+  /* ABOUT */
+  .about { background: var(--warm-white); }
+  .about-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.8; color: var(--text-mid);
+    margin-bottom: 1.2rem; font-weight: 300;
+  }
+  .about-text p strong { color: var(--navy); font-weight: 500; }
+  .differentiators { margin-top: 2rem; }
+  .diff-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .diff-item:last-child { border-bottom: none; }
+  .diff-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    background: var(--navy); color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;
+  }
+  .diff-text strong {
+    display: block; font-size: 0.85rem; font-weight: 500;
+    color: var(--navy); margin-bottom: 0.2rem;
+  }
+  .diff-text span { font-size: 0.85rem; color: var(--text-mid); line-height: 1.5; }
+
+  .about-aside { position: sticky; top: 6rem; }
+  .aside-card {
+    background: var(--navy);
+    padding: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .aside-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 400; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em;
+    padding: 0.3rem 0.7rem; text-transform: uppercase;
+    border: 1px solid rgba(200,169,110,0.4);
+    color: rgba(255,255,255,0.7);
+  }
+  .cert-list { list-style: none; }
+  .cert-list li {
+    font-size: 0.85rem; color: rgba(255,255,255,0.7);
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .cert-list li::before {
+    content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0;
+  }
+
+  /* EXPERIENCE */
+  .experience { background: var(--cream); }
+  .timeline { position: relative; margin-top: 3rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 1px; background: linear-gradient(180deg, var(--teal), transparent);
+  }
+  .timeline-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 3rem; margin-bottom: 3.5rem;
+    padding-left: 2rem; position: relative;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -4px; top: 6px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--cream);
+    box-shadow: 0 0 0 3px rgba(200,169,110,0.3);
+  }
+  .timeline-meta { padding-top: 0.1rem; }
+  .timeline-org {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 0.3rem;
+  }
+  .timeline-period {
+    font-size: 0.8rem; color: var(--text-light); font-weight: 300;
+  }
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; color: var(--navy);
+    margin-bottom: 0.8rem; line-height: 1.2;
+  }
+  .timeline-desc {
+    font-size: 0.92rem; line-height: 1.75; color: var(--text-mid);
+    font-weight: 300; margin-bottom: 0.8rem;
+  }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 0.88rem; color: var(--text-mid); line-height: 1.6;
+    padding: 0.3rem 0 0.3rem 1.2rem; position: relative; font-weight: 300;
+  }
+  .timeline-bullets li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--teal); font-size: 0.8rem;
+  }
+  .nhs-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--nhs-blue); color: #fff;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+    padding: 0.2rem 0.6rem; text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  /* SKILLS */
+  .skills-section { background: var(--navy); }
+  .skills-section .section-label { color: var(--gold); }
+  .skills-section .section-label::after { background: linear-gradient(90deg, var(--gold), transparent); }
+  .skills-section h2 { color: #fff; }
+  .skills-section h2 em { color: var(--gold); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: rgba(255,255,255,0.08);
+    margin-top: 3rem;
+  }
+  .skill-card {
+    background: var(--navy-mid);
+    padding: 2.2rem 2rem;
+    transition: background 0.2s;
+  }
+  .skill-card:hover { background: rgba(42,127,127,0.15); }
+  .skill-card-icon {
+    width: 40px; height: 40px; background: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+  }
+  .skill-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400; color: var(--gold-light);
+    margin-bottom: 0.8rem;
+  }
+  .skill-card p {
+    font-size: 0.83rem; line-height: 1.7; color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+  .skill-tag {
+    font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.2rem 0.5rem; color: var(--teal-light);
+    border: 1px solid rgba(58,159,159,0.35);
+  }
+
+  /* DIGITAL */
+  .digital { background: var(--warm-white); }
+  .digital-intro {
+    font-size: 1.05rem; line-height: 1.8; color: var(--text-mid);
+    font-weight: 300; max-width: 640px; margin-bottom: 3rem;
+  }
+  .digital-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+  }
+  .digital-card {
+    background: #fff; padding: 1.8rem 1.5rem;
+    border-top: 3px solid var(--teal);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .digital-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+  .digital-card h4 {
+    font-size: 0.82rem; font-weight: 500; color: var(--navy);
+    margin-bottom: 0.5rem; letter-spacing: 0.03em;
+  }
+  .digital-card p {
+    font-size: 0.78rem; color: var(--text-light); line-height: 1.6; font-weight: 300;
+  }
+  .proficiency {
+    display: flex; gap: 3px; margin-top: 0.8rem;
+  }
+  .pip {
+    height: 3px; flex: 1;
+    background: rgba(0,0,0,0.08);
+    transition: background 0.3s;
+  }
+  .pip.filled { background: var(--teal); }
+
+  /* CONTACT */
+  .contact { background: var(--navy); text-align: center; padding: 7rem 0; }
+  .contact h2 { color: #fff; margin-bottom: 1rem; }
+  .contact h2 em { color: var(--gold); }
+  .contact-sub {
+    font-size: 1rem; color: rgba(255,255,255,0.55); font-weight: 300;
+    margin-bottom: 3rem; line-height: 1.7;
+  }
+  .contact-links {
+    display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+  }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 2.2rem; font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+    transition: all 0.25s;
+  }
+  .contact-btn-primary {
+    background: var(--gold); color: var(--navy);
+  }
+  .contact-btn-primary:hover { background: var(--gold-light); }
+  .contact-btn-outline {
+    border: 1px solid rgba(200,169,110,0.4); color: rgba(255,255,255,0.7);
+  }
+  .contact-btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: #070f1c; padding: 2rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p {
+    font-size: 0.75rem; color: rgba(255,255,255,0.25); font-weight: 300;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    color: rgba(200,169,110,0.5); font-size: 1rem; font-weight: 300;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-text { padding: 4rem 1.5rem 2rem; }
+    .hero-image-side { padding: 2rem 1.5rem 4rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-aside { position: static; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .digital-grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 0 1.5rem; }
+    .stats-grid { grid-template-columns: repeat(3,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-name">Hana Ali</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#digital">Digital</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Strategy &amp; Transformation</div>
+    <h1>Hana<br><em>Ali</em></h1>
+    <p class="hero-title">System, Strategy &amp; Transformation Officer &nbsp;·&nbsp; NHS South West London ICB</p>
+    <p class="hero-tagline">"Always curious. Always improving.<br>Always finding the <em>how</em> that makes a vision possible."</p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">View Experience</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-image-side">
+    <div class="photo-frame">
+      <span class="photo-initials">HA</span>
+    </div>
+    <div class="stats-grid">
+      <div class="stat">
+        <span class="stat-num">20+</span>
+        <span class="stat-label">Years experience</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">3</span>
+        <span class="stat-label">NHS organisations</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">APM</span>
+        <span class="stat-label">Certified</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="section-label">About</div>
+        <h2>Bringing clarity<br>to <em>complexity</em></h2>
+        <p style="margin-top:1.5rem;">With over <strong>20 years' experience</strong> at the intersection of executive support, project delivery, and strategy transformation, I thrive on making complex change programmes work in practice — not just on paper.</p>
+        <p>Whether supporting senior leaders to deliver strategic change, mapping new operating models, or ensuring transformation projects have the right people in the room at the right time, I'm driven by one question: <strong>how can we make this smoother, smarter, and more human?</strong></p>
+        <p>I bring a rare combination of operational precision and strategic perspective — shaped by years working within some of the most high-pressure, high-stakes environments in UK public services. I'm passionate about organisations turning big visions into practical, measurable outcomes.</p>
+
+        <div class="differentiators">
+          <div class="diff-item">
+            <div class="diff-icon">01</div>
+            <div class="diff-text">
+              <strong>Anticipatory Support</strong>
+              <span>I don't wait for instructions. I stay three steps ahead, anticipating needs and removing friction before it surfaces.</span>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon">02</div>
+            <div class="diff-text">
+              <strong>Transformation Mindset</strong>
+              <span>I support structure, prioritisation and flow across change programmes — bridging strategy and delivery.</span>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon">03</div>
+            <div class="diff-text">
+              <strong>Connector of People &amp; Processes</strong>
+              <span>Strategy is nothing without execution. I bridge the gap between vision and operational reality.</span>
+            </div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-icon">04</div>
+            <div class="diff-text">
+              <strong>Resilient &amp; Adaptable</strong>
+              <span>From fast-paced corporate boards to NHS system transformation, I've thrived where change is the only constant.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-aside reveal">
+        <div class="aside-card">
+          <h3>Core Skills</h3>
+          <div class="tag-list">
+            <span class="tag">Strategy</span>
+            <span class="tag">Transformation</span>
+            <span class="tag">Project Management</span>
+            <span class="tag">Stakeholder Engagement</span>
+            <span class="tag">Process Improvement</span>
+            <span class="tag">Executive Support</span>
+            <span class="tag">Change Management</span>
+            <span class="tag">Governance</span>
+            <span class="tag">Operational Excellence</span>
+            <span class="tag">Programme Delivery</span>
+          </div>
+        </div>
+        <div class="aside-card">
+          <h3>Qualifications &amp; Certifications</h3>
+          <ul class="cert-list">
+            <li>APM Project Management Certified</li>
+            <li>Legal Secretarial Certificate</li>
+            <li>NHS Leadership Academy — Programmes</li>
+            <li>Change Management Practitioner</li>
+            <li>Microsoft 365 — Advanced User</li>
+          </ul>
+        </div>
+        <div class="aside-card">
+          <h3>Sectors</h3>
+          <div class="tag-list">
+            <span class="tag">NHS &amp; Healthcare</span>
+            <span class="tag">Public Sector</span>
+            <span class="tag">Emergency Services</span>
+            <span class="tag">Integrated Care</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-label reveal">Experience</div>
+    <h2 class="reveal">A career built on<br><em>delivering change</em></h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-meta">
+          <div class="nhs-badge">NHS</div>
+          <div class="timeline-org">NHS South West London ICB</div>
+          <div class="timeline-period">Jan 2016 – Present &nbsp;·&nbsp; 10 yrs</div>
+        </div>
+        <div>
+          <div class="timeline-role">Strategy &amp; Transformation Officer</div>
+          <p class="timeline-desc">Leading change initiatives across a complex integrated care system, improving operational processes and supporting organisational transformation at system level. Operating within a hybrid environment spanning multiple NHS organisations and partner bodies.</p>
+          <ul class="timeline-bullets">
+            <li>Coordinating and driving cross-organisational transformation programmes from initiation through to delivery</li>
+            <li>Supporting senior system leaders with strategic planning, board reporting, and programme governance</li>
+            <li>Mapping and redesigning end-to-end processes to improve efficiency and patient pathway outcomes</li>
+            <li>Leading stakeholder engagement across clinical, operational, and executive teams</li>
+            <li>Developing programme documentation, risk registers, and delivery frameworks aligned to NHS priorities</li>
+            <li>Contributing to Integrated Care Strategy planning and system-wide change management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-meta">
+          <div class="nhs-badge">NHS</div>
+          <div class="timeline-org">NHS</div>
+          <div class="timeline-period">Jan 2016 – Present &nbsp;·&nbsp; 10 yrs</div>
+        </div>
+        <div>
+          <div class="timeline-role">Executive Assistant</div>
+          <p class="timeline-desc">Providing senior executive support to NHS leaders operating at the highest levels of organisational decision-making, in a high-pressure, fast-paced environment requiring exceptional judgement and discretion.</p>
+          <ul class="timeline-bullets">
+            <li>Managing complex diaries, board schedules, and executive communications across multiple senior leaders</li>
+            <li>Preparing high-quality briefing papers, reports, and presentations for board and committee level</li>
+            <li>Acting as a key liaison between senior leadership, internal departments, and external partners</li>
+            <li>Driving efficiency improvements in administrative systems and executive workflows</li>
+            <li>Trusted with confidential and sensitive organisational matters requiring absolute discretion</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-meta">
+          <div class="nhs-badge">NHS</div>
+          <div class="timeline-org">London Ambulance Service NHS Trust</div>
+          <div class="timeline-period">Jan 2014 – Dec 2016 &nbsp;·&nbsp; 3 yrs</div>
+        </div>
+        <div>
+          <div class="timeline-role">Executive Assistant</div>
+          <p class="timeline-desc">Delivered executive support within one of the UK's largest and most operationally demanding ambulance services, gaining deep experience in emergency services governance and high-stakes decision-making environments.</p>
+          <ul class="timeline-bullets">
+            <li>Supporting senior leadership during a period of significant organisational change and performance scrutiny</li>
+            <li>Coordinating board-level governance processes and executive committee administration</li>
+            <li>Managing communications across clinical, operational, and administrative directorates</li>
+            <li>Developing strong capability in navigating complex, politically sensitive public sector environments</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="section-label reveal">Capabilities</div>
+    <h2 class="reveal">Where I add<br><em>the most value</em></h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">⟳</div>
+        <h3>Transformation &amp; Change</h3>
+        <p>End-to-end change programme management — from shaping the vision to delivering measurable outcomes in complex, multi-stakeholder environments.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Change Management</span>
+          <span class="skill-tag">Programme Delivery</span>
+          <span class="skill-tag">Benefits Realisation</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">◈</div>
+        <h3>Strategic Planning</h3>
+        <p>Translating high-level organisational strategy into actionable plans, governance structures, and operational frameworks that actually get delivered.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Strategy</span>
+          <span class="skill-tag">Governance</span>
+          <span class="skill-tag">Board Reporting</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">◎</div>
+        <h3>Stakeholder Engagement</h3>
+        <p>Building trust and alignment across clinical, operational, and executive audiences — from frontline teams to board level and external partners.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Relationship Management</span>
+          <span class="skill-tag">Communications</span>
+          <span class="skill-tag">Facilitation</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">→</div>
+        <h3>Process Improvement</h3>
+        <p>Identifying inefficiencies, redesigning workflows, and embedding sustainable improvements that free up capacity and improve outcomes.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Process Mapping</span>
+          <span class="skill-tag">Lean Principles</span>
+          <span class="skill-tag">Efficiency</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">✦</div>
+        <h3>Executive Operations</h3>
+        <p>Seamless support for senior leaders at the highest organisational levels — enabling them to operate at their best through operational excellence and strategic thinking.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Executive Support</span>
+          <span class="skill-tag">Governance</span>
+          <span class="skill-tag">Discretion</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">⬡</div>
+        <h3>Project Coordination</h3>
+        <p>APM-certified project management discipline applied to complex, cross-functional programmes — keeping stakeholders aligned and delivery on track.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">APM Certified</span>
+          <span class="skill-tag">Risk Management</span>
+          <span class="skill-tag">Reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL -->
+<section class="digital" id="digital">
+  <div class="container">
+    <div class="section-label reveal">Digital Capability</div>
+    <h2 class="reveal">Embracing the<br><em>tools of tomorrow</em></h2>
+    <p class="digital-intro reveal">Alongside deep operational expertise, I'm actively developing my digital literacy — embracing the tools and technologies reshaping the modern workplace, particularly within healthcare and public sector transformation.</p>
+    <div class="digital-grid">
+      <div class="digital-card reveal">
+        <h4>Microsoft 365</h4>
+        <p>Advanced — Word, Excel, PowerPoint, Teams, SharePoint, OneNote. Daily professional use across all applications.</p>
+        <div class="proficiency">
+          <div class="pip filled"></div><div class="pip filled"></div>
+          <div class="pip filled"></div><div class="pip filled"></div><div class="pip filled"></div>
+        </div>
+      </div>
+      <div class="digital-card reveal">
+        <h4>Data &amp; Reporting Tools</h4>
+        <p>Comfortable working with data in Excel and NHS reporting platforms. Developing skills in data visualisation for board-level insights.</p>
+        <div class="proficiency">
+          <div class="pip filled"></div><div class="pip filled"></div>
+          <div class="pip filled"></div><div class="pip filled"></div><div class="pip"></div>
+        </div>
+      </div>
+      <div class="digital-card reveal">
+        <h4>AI Tools &amp; Automation</h4>
+        <p>Actively exploring AI tools (including Microsoft Copilot and ChatGPT) to improve efficiency in drafting, analysis, and administrative workflows.</p>
+        <div class="proficiency">
+          <div class="pip filled"></div><div class="pip filled"></div>
+          <div class="pip filled"></div><div class="pip"></div><div class="pip"></div>
+        </div>
+      </div>
+      <div class="digital-card reveal">
+        <h4>Python &amp; Data Skills</h4>
+        <p>Early-stage learner, developing foundational coding and data skills to complement strategic and analytical work in an increasingly data-driven NHS.</p>
+        <div class="proficiency">
+          <div class="pip filled"></div><div class="pip filled"></div>
+          <div class="pip"></div><div class="pip"></div><div class="pip"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label" style="justify-content:center; color:var(--gold);">Get in touch</div>
+    <h2>Open to new<br><em>opportunities</em></h2>
+    <p class="contact-sub">
+      I'm currently exploring senior roles in strategy, transformation, and change management<br>
+      across public sector, healthcare, and beyond. I'd love to hear from you.
+    </p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/hana-ali" class="contact-btn contact-btn-primary" target="_blank">
+        Connect on LinkedIn
+      </a>
+      <a href="mailto:hana.ali@email.com" class="contact-btn contact-btn-outline">
+        Send an Email
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Hana Ali. All rights reserved.</p>
+  <span class="footer-name">Hana Ali</span>
+  <p>Strategy &amp; Transformation Leader</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
